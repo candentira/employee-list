@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
 import Employee from '../employee/Employee';
+import { EMPTY_EMPLOYEE_LIST } from '../../messages/lang';
 
 export default function EmployeeList({ employees }) {
-  return (
-    <ul>
-      {employees.map((employee) => (
-        <li key={employee.id}>
-          <Employee data={employee} />
-        </li>
-      ))}
-    </ul>
-  );
+  return employees && employees.length ? (
+    <div>
+      <ul>
+        {employees.map((employee) => (
+          <li key={employee.id}>
+            <Employee data={employee} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : <div>{EMPTY_EMPLOYEE_LIST}</div>;
 }
 
 EmployeeList.propTypes = {

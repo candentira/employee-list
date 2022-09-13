@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import EmployeeList from './EmployeeList';
 import Loading from '../common/Loading';
 import PrintButton from '../common/PrintButton';
+import Search from '../common/Search';
 import { getActiveEmployees } from '../../server';
 
 export default function EmployeeListContainer() {
   const [employees, setEmployees] = useState([]);
+  const [employeeFilter, setEmployeeFilter] = useState();
   const [dataLoaded, setDataLoaded] = useState(false);
 
   const fetchData = async () => {
@@ -31,6 +33,15 @@ export default function EmployeeListContainer() {
     })();
   }, []);
 
+  const onSearchChange = (filter) => setEmployeeFilter(filter.toLowerCase());
+
+  const filteredEmployees = employees.filter((employee) => {
+    // could be searching by any employee data
+    // const dataStr = Object.values(employee).join(' ').toLowerCase();
+    const dataStr = `${employee.firstName} ${employee.lastName}`.toLowerCase();
+    return employeeFilter ? dataStr.includes(employeeFilter) : true;
+  });
+
   const consolePrint = (employee) => {
     // as per requirements, could be changed in future
     // eslint-disable-next-line
@@ -39,7 +50,8 @@ export default function EmployeeListContainer() {
 
   return dataLoaded ? (
     <>
-      <EmployeeList employees={employees} />
+      <Search onChange={onSearchChange} />
+      <EmployeeList employees={filteredEmployees} />
       <PrintButton data={employees} onClick={consolePrint} />
     </>
   ) : (
