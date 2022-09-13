@@ -8,6 +8,7 @@ export default function EmployeePhoneRenderer({ data: employee }) {
       <span>{firstName}</span>
       {' '}
       <span>{lastName}</span>
+      {' '}
       {PHONE}
       :
       {' '}
