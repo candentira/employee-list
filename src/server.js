@@ -1,14 +1,10 @@
 import data from './data.json';
 
-export const getAllEmployees = async () => new Promise((resolve) => setTimeout(() => {
-  resolve(data);
+export const getEmployees = async (filter) => new Promise((resolve) => setTimeout(() => {
+  resolve(filter && typeof filter === 'function' ? filter(data) : data);
 }, 1000));
 
-export const getActiveEmployees = async () => new Promise((resolve) => {
+export const getActiveEmployees = async () => {
   const filterActiveEmployees = (allEmployees) => allEmployees.filter((employee) => employee.isActive === 'Y');
-
-  setTimeout(() => {
-    const activeEmployees = filterActiveEmployees(data);
-    resolve(activeEmployees);
-  }, 1000);
-});
+  return getEmployees(filterActiveEmployees);
+};
