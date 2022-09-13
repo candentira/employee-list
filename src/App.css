@@ -7,3 +7,7 @@
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
+.App ul {
+  list-style-type: none;
+}
