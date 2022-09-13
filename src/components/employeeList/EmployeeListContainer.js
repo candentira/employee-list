@@ -52,7 +52,7 @@ export default function EmployeeListContainer() {
     <>
       <Search onChange={onSearchChange} />
       <EmployeeList employees={filteredEmployees} />
-      <PrintButton data={employees} onClick={consolePrint} />
+      <PrintButton data={filteredEmployees} onClick={consolePrint} />
     </>
   ) : (
     <Loading />
