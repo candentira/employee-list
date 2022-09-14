@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Employee search Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React app was based on Create React App templated
 
-## Available Scripts
+### Install dependencies
 
-In the project directory, you can run:
+```
+npm install
+```
 
-### `npm start`
+### Start the app
+
+```
+npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Run tests
 
-### `npm test`
+```
+npm test
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
-### `npm run build`
+### Build the app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm run build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Builds the app for production to the `build` folder.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Implemented Functionalty:
 
-### `npm run eject`
+#### Task 1: Display a number of employees on screen
+Given a number of employee information as follows, show them as a list in browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```js
+employees = [
+{ id: 1, firstName: "John", "lastName": "Doe", email: "john.doe@domain.com", "department": "Finance", tel: "11111", isActive: 'Y' },
+{ id: 2, firstName: "Jane", "lastName": "Doe", email: "jane.doe@domain.com", "department": "Finance", tel: "22222", isActive: 'Y' },
+{ id: 3, firstName: "Bob" , "lastName": "Simpson", email: "bob.simpson@domain.com", "department": "IT", tel: "33333", isActive: 'Y' },
+{ id: 4, firstName: "Max" , "lastName": "Mayfield", email: "max.mayfield@domain.com", "department": "IT", tel: "44444", isActive: 'Y' },
+{ id: 5, firstName: "Tom" , "lastName": "Jones", email: "tom.jones@domain.com", "department": "IT", tel: "44444", isActive: 'N' }]
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Conditions:
+Employees belonging to Finance department should have full name (first name + last name) and email visible on screen
+Employees belonging to IT department should have full name (first name + last name) and tel contact visible on screen
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Task 2: Provide an Employee search functionality
+Create a search box which would search users based on the input string.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If there are seach results found, only those employees should be shown in the browser
+Appropriate error message shown when no matches are found
 
-## Learn More
+#### Task 3: Provide an Submit functionality
+Create a Submit button which would log the currently visible employees in Console
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Task 4: Create a service to return the Employee information
+Create a backend like service which would return the initial employee data. This service should return only the active employees.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Extra functionality:
 
-### Code Splitting
+Search bar debouncing and Submit throttling.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All static texts were extracted into separate file - for ease of application translation.
