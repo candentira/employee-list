@@ -13,14 +13,14 @@ const EMMPLOYEE_RENDERER = {
   [DEPARTMENTS.IT]: EmployeePhoneRenderer,
 };
 
-export default function Employee({ data: employee }) {
+export default function Employee({ employee }) {
   const { department } = employee;
   const EmployeeRenderer = EMMPLOYEE_RENDERER[department] || EmployeeNoRenderer;
-  return <EmployeeRenderer data={employee} />;
+  return <EmployeeRenderer employee={employee} />;
 }
 
 Employee.propTypes = {
-  data: PropTypes.shape({
+  employee: PropTypes.shape({
     department: PropTypes.string,
   }).isRequired,
 };

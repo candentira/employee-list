@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
 import { EMAIL } from '../../../messages/lang';
 
-export default function EmployeeEmailRenderer({ data: employee }) {
+export default function EmployeeEmailRenderer({ employee }) {
   const { firstName, lastName, email } = employee;
   return (
     <>
-      <span>{firstName}</span>
-      {' '}
-      <span>{lastName}</span>
+      <span>
+        {firstName}
+        {' '}
+        {lastName}
+      </span>
       {' '}
       {EMAIL}
       :
@@ -18,7 +20,7 @@ export default function EmployeeEmailRenderer({ data: employee }) {
 }
 
 EmployeeEmailRenderer.propTypes = {
-  data: PropTypes.shape({
+  employee: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     email: PropTypes.string,

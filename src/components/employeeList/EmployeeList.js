@@ -8,7 +8,7 @@ export default function EmployeeList({ employees }) {
       <ul>
         {employees.map((employee) => (
           <li key={employee.id}>
-            <Employee data={employee} />
+            <Employee employee={employee} />
           </li>
         ))}
       </ul>

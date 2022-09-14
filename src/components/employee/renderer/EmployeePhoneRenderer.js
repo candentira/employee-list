@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
 import { PHONE } from '../../../messages/lang';
 
-export default function EmployeePhoneRenderer({ data: employee }) {
+export default function EmployeePhoneRenderer({ employee }) {
   const { firstName, lastName, tel: phone } = employee;
   return (
     <>
-      <span>{firstName}</span>
-      {' '}
-      <span>{lastName}</span>
+      <span>
+        {firstName}
+        {' '}
+        {lastName}
+      </span>
       {' '}
       {PHONE}
       :
@@ -18,7 +20,7 @@ export default function EmployeePhoneRenderer({ data: employee }) {
 }
 
 EmployeePhoneRenderer.propTypes = {
-  data: PropTypes.shape({
+  employee: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     tel: PropTypes.string,
